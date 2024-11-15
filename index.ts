@@ -19,7 +19,10 @@ app.post("/", async (context) => {
 
   await page.setContent(html);
   const product = await page.waitForSelector("div#product");
-  await product?.screenshot({ path: `${path}/${file_name}` });
+  await product?.screenshot({
+    path: `${path}/${file_name}`,
+    omitBackground: true,
+  });
 
   return context.json({ success: true });
 });
