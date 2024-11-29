@@ -8,8 +8,6 @@ const browser = await puppeteer.launch({
   args: ["--no-sandbox"],
 });
 
-const page = await browser.newPage();
-
 app.post("/", async (context) => {
   const { path, html, file_name } = (await context.req.json()) as {
     path: string;
@@ -17,12 +15,17 @@ app.post("/", async (context) => {
     file_name: string;
   };
 
+  const page = await browser.newPage();
+
   await page.setContent(html);
   const product = await page.waitForSelector("div#product");
+
   await product?.screenshot({
     path: `${path}/${file_name}`,
     omitBackground: true,
   });
+
+  await page.close();
 
   return context.json({ success: true });
 });
