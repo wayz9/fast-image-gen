@@ -1,0 +1,30 @@
+[
+    {
+        "title": "BRIT PREMIUM by Nature Sensitive s jagnjetinom i pirinčem",
+        "source": "https://www.pet-centar.rs/cdn/shop/files/brit_premium_by_nature_sensitive_s_jagnjetinom_i_pirincem__3kg.jpg?height=500&pad_color=fff&v=1742333224&width=500",
+        "price": 149900,
+        "discounted_price": 129900,
+        "currency": "RSD",
+        "with_free_shipping": true,
+        "free_shipping_badge_text": "Besplatna dostava za porudžbine preko 5000 RSD",
+        "unique_id": 45649451909406
+    },
+    {
+        "title": "BRIT PREMIUM by Nature Adult Medium Breeds",
+        "source": "https://www.pet-centar.rs/cdn/shop/files/brit_premium_by_nature_adult_medium_breeds__1kg.jpg?height=500&pad_color=fff&v=1742333212&width=500",
+        "price": 45900,
+        "discounted_price": 0,
+        "currency": "RSD",
+        "with_free_shipping": false,
+        "unique_id": 45701162467614
+    },
+    {
+        "title": "BRIT PREMIUM by Nature Adult Large Breeds",
+        "source": "https://www.pet-centar.rs/cdn/shop/files/brit_premium_by_nature_adult_large_breeds__3kg.jpg?height=500&pad_color=fff&v=1742333207&width=500",
+        "price": 115900,
+        "discounted_price": 0,
+        "currency": "RSD",
+        "with_free_shipping": true,
+        "unique_id": 45649471111454
+    }
+]

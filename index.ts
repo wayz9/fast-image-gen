@@ -10,18 +10,21 @@ const browser = await puppeteer.launch({
 
 const page = await browser.newPage();
 
+app.get("/", (context) => {
+  return context.text("Hello from Hono!");
+});
+
 app.post("/", async (context) => {
-  const { path, html, file_name } = (await context.req.json()) as {
+  const { path, html } = (await context.req.json()) as {
     path: string;
     html: string;
-    file_name: string;
   };
 
   await page.setContent(html);
   const product = await page.waitForSelector("div#product");
 
   await product?.screenshot({
-    path: `${path}/${file_name}`,
+    path,
     omitBackground: true,
   });
 
