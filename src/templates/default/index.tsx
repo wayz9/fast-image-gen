@@ -11,11 +11,17 @@ function formattedPrice(price: number, currency: Currency): string {
 export default function Default({ product }: { product: Product }) {
   let discountPercentage: number | string | undefined = undefined;
 
+  const price = product.price / 100;
+  const currency = product.currency;
+
+  let discountPrice: number | undefined = undefined;
+
   if (product.discount_price) {
     discountPercentage =
       (product.price - product.discount_price) / product.price;
 
     discountPercentage = Math.round(discountPercentage * 100) + "%";
+    discountPrice = product.discount_price / 100;
   }
 
   return (
@@ -54,14 +60,12 @@ export default function Default({ product }: { product: Product }) {
                   discountPercentage ? "text-red-600" : "text-gray-900"
                 }`}
               >
-                {product.discount_price &&
-                  formattedPrice(product.discount_price, product.currency)}
-                {!product.discount_price &&
-                  formattedPrice(product.price, product.currency)}
+                {discountPrice && formattedPrice(discountPrice, currency)}
+                {!discountPrice && formattedPrice(price, currency)}
               </h1>
-              {product.discount_price && (
+              {discountPrice && (
                 <span className="text-2xl font-semibold text-gray-800 line-through">
-                  {formattedPrice(product.price, product.currency)}
+                  {formattedPrice(price, currency)}
                 </span>
               )}
             </div>

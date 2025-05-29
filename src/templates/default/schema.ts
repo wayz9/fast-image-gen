@@ -10,7 +10,7 @@ export const symbols: Record<Currency, string> = {
 };
 
 export const productSchema = z.object({
-  unique_id: z.union([z.string().regex(/[A-Z][a-z][0-9]/), z.number()]),
+  unique_id: z.coerce.string().regex(/[A-Za-z0-9]/),
   title: z.string(),
   with_free_shipping: z.boolean().default(false),
   free_shipping_badge_text: z.string().optional(),
